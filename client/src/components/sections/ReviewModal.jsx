@@ -85,7 +85,7 @@ export default function ReviewModal({ open, onClose }) {
       Object.entries(form).forEach(([k, v]) => v !== '' && v !== 0 && data.append(k, v));
       // shrink photos in the browser first (fast on mobile data, stays under the 2 MB limit)
       for (const [i, { file }] of photos.entries()) {
-        const small = await imageCompression(file, { maxSizeMB: 0.5, maxWidthOrHeight: 1400, useWebWorker: true, fileType: 'image/webp' });
+        const small = await imageCompression(file, { maxSizeMB: 0.5, maxWidthOrHeight: 1400, useWebWorker: false, fileType: 'image/webp' });
         data.append('photos', small, `photo-${i + 1}.webp`);
       }
       await api.postForm('/reviews', data);
