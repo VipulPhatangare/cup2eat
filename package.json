@@ -1,0 +1,19 @@
+{
+  "name": "cup2eat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CUP2EAT - Eat Your Drink. MERN landing page.",
+  "scripts": {
+    "dev": "concurrently -n server,client -c green,yellow \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "seed": "npm run seed --prefix server",
+    "images": "node server/seed/convertImages.js",
+    "install:all": "npm i && npm i --prefix server && npm i --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "frames": "node scripts/makeFrames.mjs",
+    "admin:create": "npm run admin:create --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
